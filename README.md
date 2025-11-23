@@ -3,13 +3,19 @@ Dockerized solution for sending Prometheus alerts to Telegram
 
 🚀 Quick Start
 ============================================================
-docker-compose up -d --build
+
+```
+git clone https://github.com/congto/prometheus_alertmanaer_telegram_docker.git
+
+cd prometheus_alertmanaer_telegram_docker 
+```
+
+
 
 🔧Configuration
 ===========================================================
 
-
-Tạo file  .env chứa nội dung :
+Sửa file  .env  với thông tin của bạn: 
 
 ```
 BOT_TOKEN=your_bot_token  
@@ -18,27 +24,15 @@ CHAT_ID=your_chat_id
 
 Hoặc chỉ cần sửa trong file python chứa code của webhook 
 
-Docker Compose
-Manages two services:
-Alertmanager (port 9093)
-Telegram webhook (port 8080)
 
-⚙️ Integration Guide
-Prometheus Setup
-============================================================
-Add to your prometheus.yml:
+Build image 
 
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets: ['localhost:9093']
-   
-**ALSO for alert rules notification**
-cp rule.yml /etc/prometheus/
+```
+docker-compose up -d --build
+```
 
-**AND Add to your prometheus.yml:**
-rule_files:
-  - "/etc/prometheus/rule.yml"  # Путь к файлу с алертами
+
+"  # Путь к файлу с алертами
       
 Auto-start (Linux)
 ============================================================
