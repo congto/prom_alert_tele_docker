@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 services:
   # set up any service to be monitored using prometheus. I chose rabbitmq with no particular reason
   rabbitmq:
@@ -25,13 +25,20 @@ services:
       - "9093:9093"
     volumes:
       - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
-  # alertmanager UI
-  unsee:
-    image: cloudflare/unsee:latest
-    restart: always
-    environment:
-      ALERTMANAGER_URI: http://alertmanager:9093
-      ALERTMANAGER_PROXY: true
-      ALERTMANAGER_INTERVAL: 5s
+  # # alertmanager UI
+  # unsee:
+    # image: cloudflare/unsee:latest
+    # restart: always
+    # environment:
+      # ALERTMANAGER_URI: http://alertmanager:9093
+      # ALERTMANAGER_PROXY: true
+      # ALERTMANAGER_INTERVAL: 5s
+    # ports:
+      # - 8081:8080
+  telegram-webhook:
+    build:
+      context: ./telegram-webhook
     ports:
-      - 8080:8080
+      - "8080:8080"
+    env_file:
+      - .env
