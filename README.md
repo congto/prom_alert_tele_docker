@@ -5,9 +5,9 @@ Dockerized solution for sending Prometheus alerts to Telegram
 ============================================================
 
 ```
-git clone https://github.com/congto/prometheus_alertmanaer_telegram_docker.git
+git clone https://github.com/congto/prom_alert_tele_docker.git
 
-cd prometheus_alertmanaer_telegram_docker 
+cd prom_alert_tele_docker
 ```
 
 
