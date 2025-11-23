@@ -7,13 +7,14 @@ docker-compose up -d --build
 
 🔧Configuration
 ===========================================================
-Environment Variables
+
+
 Tạo file  .env chứa nội dung :
 
-
+```
 BOT_TOKEN=your_bot_token  
 CHAT_ID=your_chat_id  
-
+```
 
 Hoặc chỉ cần sửa trong file python chứa code của webhook 
 
